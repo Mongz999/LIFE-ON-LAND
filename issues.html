@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Issues & Data — Life on Land</title>
+  <link rel="icon" type="image/x-icon" href="./img/Life on Land.PNG">
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/issues.css">
+  <link rel="stylesheet" href="./styles/page-backgrounds.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+  <script defer src="./scripts/main.js"></script>
+  <script defer src="./scripts/issues.js"></script>
+</head>
+
+<body class="issues-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">
+        <span class="goal-number">15</span>
+        <span class="goal-title">LIFE ON LAND</span>
+      </a>
+
+      <form class="search-form" role="search" action="./targets.html" method="get">
+        <label for="site-search" class="sr-only">Search</label>
+        <input id="site-search" class="search-input" type="search" name="q" placeholder="Search targets, actions..." />
+        <button class="search-button" type="submit">🔍︎</button>
+      </form>
+
+      <nav class="main-nav">
+        <button class="menu-toggle" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./targets.html">Targets</a></li>
+          <li><a href="./issues.html" aria-current="page">Issues & Data</a></li>
+          <li><a href="./help.html">How to Help</a></li>
+          <li><a href="./quiz.html">Quiz & Activities</a></li>
+          <li><a href="./about.html">About Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  
+  <main class="container">
+    <h1 style="color: #0b6b3a; margin-bottom: 8px;">Issues & Data</h1>
+    <p class="lead" style="color: #4b6b5a; margin-bottom: 24px;">Understand the biodiversity crisis, access authoritative data sources, and learn about monitoring limitations.</p>
+
+    <!-- Critical Issues Section -->
+    <section style="margin: 36px 0;">
+      <h2 class="section-heading">Critical Issues Facing SDG 15</h2>
+
+      <div class="threat-card threat-critical">
+        <h4>🔴 Deforestation & forest loss</h4>
+        <p><strong>Status: CRITICAL</strong> — Tropical forests are cleared at ~10M hectares/year for agriculture, logging, cattle ranching, and development. The Amazon alone loses an area the size of a football field every minute.</p>
+        <p style="margin-top: 8px;"><em>Impact:</em> Carbon release, species habitat loss, indigenous land displacement, reduced rainfall patterns.</p>
+      </div>
+
+      <div class="threat-card threat-critical">
+        <h4>🔴 Biodiversity collapse</h4>
+        <p><strong>Status: CRITICAL</strong> — 1 million animal and plant species face extinction. Extinction rates are 1,000x the natural baseline. Vertebrate populations have declined 68% since 1970.</p>
+        <p style="margin-top: 8px;"><em>Drivers:</em> Habitat destruction, climate change, pollution, overexploitation, invasive species.</p>
+      </div>
+
+      <div class="threat-card threat-high">
+        <h4>🟠 Climate change impact</h4>
+        <p><strong>Status: HIGH</strong> — Rising temperatures alter ecosystems faster than species can adapt. Coral bleaching, shifting migration patterns, and extreme weather events accelerate biodiversity loss.</p>
+        <p style="margin-top: 8px;"><em>Vulnerable areas:</em> Arctic ecosystems, coral reefs, montane forests, small island states.</p>
+      </div>
+
+      <div class="threat-card threat-high">
+        <h4>🟠 Desertification & land degradation</h4>
+        <p><strong>Status: HIGH</strong> — 1.3 billion people depend on degrading drylands. Soil loss, salinization, and vegetation loss reduce agricultural productivity and increase poverty.</p>
+        <p style="margin-top: 8px;"><em>Affected regions:</em> Sub-Saharan Africa, Central Asia, Middle East, parts of China and India.</p>
+      </div>
+
+      <div class="threat-card threat-high">
+        <h4>🟠 Wildlife trafficking & poaching</h4>
+        <p><strong>Status: HIGH</strong> — Illegal wildlife trade worth $23B annually drives species toward extinction. African elephants, rhinoceros, pangolins, and tigers face critical pressure.</p>
+        <p style="margin-top: 8px;"><em>Solutions:</em> Demand reduction, community protection, international enforcement (CITES).</p>
+      </div>
+
+      <div class="threat-card threat-moderate">
+        <h4>🔵 Invasive species</h4>
+        <p><strong>Status: MODERATE</strong> — Invasive species cost the global economy $120B+ annually and outcompete native species. Examples: Burmese pythons in Florida, Asian carp in North America.</p>
+      </div>
+    </section>
+
+    <!-- Data Sources Section -->
+    <section style="margin: 36px 0;">
+      <h2 class="section-heading">Authoritative Data Sources</h2>
+
+      <div class="data-source">
+        <h5>🌍 GBIF — Global Biodiversity Information Facility</h5>
+        <p>2+ billion species occurrence records from museums, herbaria, and citizen science networks worldwide.</p>
+        <p><a href="https://www.gbif.org/" target="_blank">Visit GBIF →</a> | API: <a href="https://www.gbif.org/developer/summary" target="_blank">GBIF API docs</a></p>
+      </div>
+
+      <div class="data-source">
+        <h5>🌳 UNEP-WCMC — UN Environment Programme World Conservation Monitoring Centre</h5>
+        <p>World Database on Protected Areas (WDPA): 280,000+ protected areas covering 17% of terrestrial ecosystems.</p>
+        <p><a href="https://www.unep-wcmc.org/" target="_blank">Visit UNEP-WCMC →</a> | Database: <a href="https://www.protectedplanet.net/" target="_blank">Protected Planet</a></p>
+      </div>
+
+      <div class="data-source">
+        <h5>📊 NASA SEDAC — Socioeconomic Data and Applications Center</h5>
+        <p>Satellite imagery, population density, land use/land cover, forest canopy height, and ecosystem maps.</p>
+        <p><a href="https://sedac.ciesin.columbia.edu/" target="_blank">Visit NASA SEDAC →</a></p>
+      </div>
+
+      <div class="data-source">
+        <h5>🌲 Global Forest Watch</h5>
+        <p>Real-time forest loss monitoring, deforestation alerts, and forest extent data by region and country.</p>
+        <p><a href="https://www.globalforestwatch.org/" target="_blank">Visit Global Forest Watch →</a> | Data: <a href="https://www.globalforestwatch.org/about/datasets/" target="_blank">Available datasets</a></p>
+      </div>
+
+      <div class="data-source">
+        <h5>🦁 IUCN Red List</h5>
+        <p>Threat assessments for 177,000+ species. Classification: Extinct, Extinct in the Wild, Critically Endangered, Endangered, Vulnerable, Near Threatened, Least Concern, Data Deficient.</p>
+        <p><a href="https://www.iucnredlist.org/" target="_blank">Visit IUCN Red List →</a> | Statistics: <a href="https://www.iucnredlist.org/resources/statistics" target="_blank">Summary stats</a></p>
+      </div>
+
+      <div class="data-source">
+        <h5>🌐 CBD — Convention on Biological Diversity</h5>
+        <p>International biodiversity monitoring framework, Nagoya Protocol on genetic resource sharing, SDG 15 indicator tracking.</p>
+        <p><a href="https://www.cbd.int/" target="_blank">Visit CBD →</a> | Portal: <a href="https://www.cbd.int/gbo5/dashboard/" target="_blank">Global Biodiversity Outlook</a></p>
+      </div>
+
+      <div class="data-source">
+        <h5>📈 UN Statistics Division — SDG 15 Indicators</h5>
+        <p>Official UN data on forest area, protected area coverage, species threat levels, desertification progress.</p>
+        <p><a href="https://unstats.un.org/sdgs/" target="_blank">Visit UN Stats SDG Dashboard →</a></p>
+      </div>
+    </section>
+
+    <!-- Threat Level Summary Chart -->
+    <section style="margin: 36px 0;">
+      <h2 class="section-heading">Global Threat Assessment (Sample)</h2>
+      <div class="chart-wrapper">
+        <canvas id="threatAssessmentChart" height="80"></canvas>
+      </div>
+    </section>
+
+    <!-- Data Limitations Section -->
+    <section style="margin: 36px 0;">
+      <h2 class="section-heading">Data Limitations & Caveats</h2>
+
+      <div class="limitations-box">
+        <h4>⚠️ Important limitations</h4>
+        <ul>
+          <li><strong>Geographic bias:</strong> Developed countries have better monitoring infrastructure. Tropical regions often lack comprehensive data despite highest biodiversity.</li>
+          <li><strong>Temporal lag:</strong> Satellite data updates quarterly or annually. Real-time monitoring is incomplete.</li>
+          <li><strong>Incomplete species inventory:</strong> ~80% of species remain undiscovered. GBIF data reflects observed and recorded occurrences, not complete distributions.</li>
+          <li><strong>Protected area effectiveness:</strong> Designation doesn't guarantee protection. Enforcement, funding, and management quality vary widely.</li>
+          <li><strong>Climate projections:</strong> Future species range shifts depend on climate models with inherent uncertainty.</li>
+          <li><strong>Indigenous knowledge:</strong> Western scientific monitoring often undervalues traditional ecological knowledge held by indigenous communities.</li>
+        </ul>
+      </div>
+
+      <h3 style="color: #0b6b3a; margin-top: 24px;">How to use this data responsibly</h3>
+      <ul style="color: #4b6b5a; line-height: 1.8;">
+        <li>Always cite original sources — use links to data providers above.</li>
+        <li>Combine multiple datasets — no single source is complete.</li>
+        <li>Account for measurement uncertainty in models and projections.</li>
+        <li>Engage with indigenous communities and local experts when working in biodiverse regions.</li>
+        <li>Update analyses as new data becomes available (quarterly for forest data, annual for most biodiversity data).</li>
+      </ul>
+    </section>
+
+    <!-- Research & References -->
+    <section style="margin: 36px 0;">
+      <h2 class="section-heading">Key Research & Reports</h2>
+      <ul style="color: #4b6b5a; line-height: 1.8; text-decoration: none;">
+        <li><a href="https://unstats.un.org/sdgs/report/2024/" target="_blank">UN SDG Report 2024</a> — Latest progress on all 17 goals including SDG 15.</li>
+        <li><a href="https://www.ipbes.net/global-assessment" target="_blank">IPBES Global Assessment (2019)</a> — Comprehensive biodiversity and ecosystem services assessment.</li>
+        <li><a href="https://www.livingplanetreport.org/" target="_blank">Living Planet Report (WWF)</a> — Biennial tracker of vertebrate population trends.</li>
+        <li><a href="https://www.globalforestwatch.org/blog/" target="_blank">Global Forest Watch Blog</a> — Monthly analyses of deforestation trends.</li>
+        <li><a href="https://www.iucnredlist.org/resources/statistics" target="_blank">IUCN Red List Statistics</a> — Updated threat assessments and extinction risk trends.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Life on Land | <a href="https://sdgs.un.org/goals/goal15" target="_blank">SDG 15</a> | Data from GBIF, UNEP-WCMC, NASA, GFW, IUCN</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+/* Threat cards */
+.threat-card {
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border-left: 4px solid;
+}
+
+.threat-critical {
+  background: rgba(208, 58, 43, 0.08);
+  border-color: #d03a2b;
+}
+
+.threat-high {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: #f59e0b;
+}
+
+.threat-moderate {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: #3b82f6;
+}
+
+.threat-card h4 {
+  margin: 0 0 6px 0;
+  color: #234b38;
+  font-weight: 600;
+}
+
+.threat-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4b6b5a;
+  line-height: 1.5;
+}
+
+/* Data sources */
+.data-source {
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border-left: 3px solid #0b6b3a;
+}
+
+.data-source h5 {
+  margin: 0 0 4px 0;
+  font-weight: 600;
+  color: #0b6b3a;
+  font-size: 0.95rem;
+}
+
+.data-source p {
+  margin: 0 0 4px 0;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.data-source a {
+  color: #0b6b3a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.data-source a:hover {
+  text-decoration: underline;
+}
+
+/* Chart wrapper */
+.chart-wrapper {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin: 18px 0;
+}
+
+/* Section headings */
+.section-heading {
+  color: #0b6b3a;
+  border-bottom: 2px solid rgba(11, 107, 58, 0.2);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+.section-heading ul a{
+  list-style-type: none;
+  text-decoration: none;
+}
+
+/* Key Research & Reports — links: remove underline and make text green */
+h2.section-heading + ul a {
+  text-decoration: none;
+  color: #0b6b3a;
+  font-weight: 600;
+}
+
+h2.section-heading + ul a:hover,
+h2.section-heading + ul a:focus {
+  text-decoration: underline;
+  color: #084d2a;
+}
+
+/* Limitations box */
+.limitations-box {
+  background: rgba(243, 158, 11, 0.08);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 4px solid #f59e0b;
+}
+
+.limitations-box h4 {
+  margin: 0 0 8px 0;
+  color: #92400e;
+  font-weight: 600;
+}
+
+.limitations-box ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #4b6b5a;
+  line-height: 1.8;
+}
+
+.limitations-box li {
+  margin-bottom: 6px;
+}
+
+/* Lead text */
+.lead {
+  font-size: 1.05rem;
+  font-weight: 500;
+}

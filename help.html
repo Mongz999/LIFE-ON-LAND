@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>How to Help — Life on Land</title>
+  <link rel="icon" type="image/x-icon" href="./img/Life on Land.PNG">
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/help.css">
+  <link rel="stylesheet" href="./styles/page-backgrounds.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+  <script defer src="./scripts/main.js"></script>
+  <script defer src="./scripts/help.js"></script>
+</head>
+
+<body class="help-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">
+        <span class="goal-number">15</span>
+        <span class="goal-title">LIFE ON LAND</span>
+      </a>
+
+      <form class="search-form" role="search" action="./targets.html" method="get">
+        <label for="site-search" class="sr-only">Search</label>
+        <input id="site-search" class="search-input" type="search" name="q" placeholder="Search targets, actions..." />
+        <button class="search-button" type="submit">🔍︎</button>
+      </form>
+
+      <nav class="main-nav">
+        <button class="menu-toggle" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./targets.html">Targets</a></li>
+          <li><a href="./issues.html">Issues & Data</a></li>
+          <li><a href="./help.html" aria-current="page">How to Help</a></li>
+          <li><a href="./quiz.html">Quiz & Activities</a></li>
+          <li><a href="./about.html">About Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">How to Help</h1>
+    <p class="page-intro">SDG 15 requires action at every level — individual, community, national, and global. Discover how you can contribute to protecting biodiversity and restoring ecosystems.</p>
+
+    <!-- Impact Levels -->
+    <section class="impact-levels">
+      <h2 class="section-heading">Choose Your Impact Level</h2>
+      <div class="level-grid">
+        <article class="level-card">
+          <h3>🌱Individual Actions</h3>
+          <p>Make sustainable choices in your daily life that reduce your environmental footprint.</p>
+          <a href="#individual" class="btn-small">Explore →</a>
+        </article>
+        <article class="level-card">
+          <h3>🤝Community & Volunteer</h3>
+          <p>Join local conservation initiatives, participate in habitat restoration, and amplify impact.</p>
+          <a href="#community" class="btn-small">Explore →</a>
+        </article>
+        <article class="level-card">
+          <h3>💰Financial Support</h3>
+          <p>Donate to organizations and projects protecting biodiversity and ecosystems.</p>
+          <a href="#donate" class="btn-small">Explore →</a>
+        </article>
+        <article class="level-card">
+          <h3>📢Policy & Advocacy</h3>
+          <p>Influence policy decisions, raise awareness, and hold governments accountable.</p>
+          <a href="#policy" class="btn-small">Explore →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Individual Actions -->
+    <section id="individual" class="action-section">
+      <h2 class="section-heading">🌱 Individual Actions</h2>
+      <p class="section-intro">Small daily choices compound into significant impact. Here are concrete steps you can take:</p>
+
+      <div class="action-cards">
+        <article class="action-card">
+          <h3>Reduce consumption</h3>
+          <p><strong>Why:</strong> Overproduction drives habitat destruction, deforestation, and pollution.</p>
+          <ul>
+            <li>Buy less, choose quality over quantity</li>
+            <li>Repair and reuse instead of discarding</li>
+            <li>Support circular economy brands</li>
+            <li>Reduce plastic use (bags, packaging, single-use items)</li>
+          </ul>
+        </article>
+
+        <article class="action-card">
+          <h3>Dietary choices</h3>
+          <p><strong>Why:</strong> Livestock farming is a leading cause of deforestation, especially in the Amazon.</p>
+          <ul>
+            <li>Reduce meat consumption (especially beef)</li>
+            <li>Choose sustainably-caught or plant-based proteins</li>
+            <li>Buy local, seasonal produce</li>
+            <li>Support regenerative agriculture</li>
+          </ul>
+        </article>
+
+        <article class="action-card">
+          <h3>Support sustainable products</h3>
+          <p><strong>Why:</strong> Certified products fund conservation and enforce ethical practices.</p>
+          <ul>
+            <li>Look for FSC (Forest Stewardship Council) certification on wood products</li>
+            <li>Choose MSC (Marine Stewardship Council) certified seafood</li>
+            <li>Buy organic and fair-trade certified goods</li>
+            <li>Support indigenous-led conservation initiatives</li>
+          </ul>
+        </article>
+
+        <article class="action-card">
+          <h3>Energy & transportation</h3>
+          <p><strong>Why:</strong> Climate change is a major driver of ecosystem collapse.</p>
+          <ul>
+            <li>Switch to renewable energy if possible</li>
+            <li>Reduce transportation emissions: walk, bike, public transit, or carpool</li>
+            <li>Offset carbon through verified projects</li>
+            <li>Reduce energy use at home (heating, cooling, appliances)</li>
+          </ul>
+        </article>
+
+        <article class="action-card">
+          <h3>Support wildlife protection</h3>
+          <p><strong>Why:</strong> Illegal wildlife trade is a $23B industry threatening species with extinction.</p>
+          <ul>
+            <li>Never purchase wildlife products (ivory, skins, exotic pets)</li>
+            <li>Report poaching/trafficking to <a href="https://www.wildlifejustice.org/" target="_blank">Wildlife Justice Commission</a></li>
+            <li>Support anti-poaching organizations</li>
+            <li>Educate others about the wildlife trade crisis</li>
+          </ul>
+        </article>
+
+        <article class="action-card">
+          <h3>Home & garden biodiversity</h3>
+          <p><strong>Why:</strong> Urban and suburban habitats are critical for insects, birds, and pollinators.</p>
+          <ul>
+            <li>Plant native species in your garden</li>
+            <li>Avoid pesticides and herbicides</li>
+            <li>Create water sources (bird baths, small ponds)</li>
+            <li>Leave dead wood for insects and fungi</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Community & Volunteer -->
+    <section id="community" class="action-section">
+      <h2 class="section-heading">🤝 Community & Volunteer</h2>
+      <p class="section-intro">Join organizations and initiatives making a tangible difference on the ground:</p>
+
+      <div class="org-grid">
+        <article class="org-card">
+          <h3>World Wildlife Fund (WWF)</h3>
+          <p>Global leader in wildlife conservation, forest protection, and climate action.</p>
+          <ul>
+            <li><a href="https://www.worldwildlife.org/get-involved" target="_blank">Volunteer opportunities</a></li>
+            <li><a href="https://www.worldwildlife.org/adopt" target="_blank">Symbolic animal adoption</a></li>
+            <li><a href="https://www.worldwildlife.org/subscribe" target="_blank">Membership programs</a></li>
+          </ul>
+        </article>
+
+        <article class="org-card">
+          <h3>The Nature Conservancy</h3>
+          <p>Science-based conservation protecting lands and waters worldwide.</p>
+          <ul>
+            <li><a href="https://www.nature.org/en-us/get-involved/how-to-help/" target="_blank">Volunteer & programs</a></li>
+            <li><a href="https://www.nature.org/en-us/get-involved/how-to-help/travel-recreation/" target="_blank">Sustainable travel guides</a></li>
+            <li><a href="https://www.nature.org/en-us/get-involved/how-to-help/donate/" target="_blank">Donate</a></li>
+          </ul>
+        </article>
+
+        <article class="org-card">
+          <h3>Conservation International</h3>
+          <p>Protects Earth's biodiversity hotspots and supports indigenous communities.</p>
+          <ul>
+            <li><a href="https://www.conservation.org/projects" target="_blank">Support specific projects</a></li>
+            <li><a href="https://www.conservation.org/get-involved" target="_blank">Volunteer & donate</a></li>
+            <li><a href="https://www.conservation.org/research" target="_blank">Research & data</a></li>
+          </ul>
+        </article>
+
+        <article class="org-card">
+          <h3>Global Forest Watch</h3>
+          <p>Real-time forest monitoring and deforestation alerts.</p>
+          <ul>
+            <li><a href="https://www.globalforestwatch.org/get-involved/" target="_blank">Get involved</a></li>
+            <li><a href="https://www.globalforestwatch.org/blog/" target="_blank">Latest news & analysis</a></li>
+            <li><a href="https://www.globalforestwatch.org/about/contact/" target="_blank">Contact team</a></li>
+          </ul>
+        </article>
+
+        <article class="org-card">
+          <h3>GBIF — Biodiversity Data</h3>
+          <p>Contribute species occurrence data and support global biodiversity monitoring.</p>
+          <ul>
+            <li><a href="https://www.gbif.org/become-publisher" target="_blank">Become a data publisher</a></li>
+            <li><a href="https://www.gbif.org/citizen-science" target="_blank">Citizen science projects</a></li>
+            <li><a href="https://www.gbif.org/api" target="_blank">Use GBIF API for research</a></li>
+          </ul>
+        </article>
+
+        <article class="org-card">
+          <h3>Local Conservation Groups</h3>
+          <p>Find organizations in your region working on habitat restoration, species protection, and policy change.</p>
+          <ul>
+            <li>Search: "<your-region> conservation group"</li>
+            <li><a href="https://www.idealist.org/" target="_blank">Idealist.org — nonprofit opportunities</a></li>
+            <li><a href="https://www.volunteermatch.org/" target="_blank">VolunteerMatch — local projects</a></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="volunteer-focus">
+        <h3>Popular Volunteer Opportunities</h3>
+        <ul>
+          <li><strong>Tree planting:</strong> Restore forests and carbon sequestration capacity</li>
+          <li><strong>Habitat restoration:</strong> Remove invasive species, restore native vegetation</li>
+          <li><strong>Citizen science:</strong> Document species, monitor populations, collect biodiversity data</li>
+          <li><strong>Community outreach:</strong> Educate about conservation and sustainable practices</li>
+          <li><strong>Wildlife monitoring:</strong> Track animals, document behaviors, assist with research</li>
+          <li><strong>Policy advocacy:</strong> Support campaigns for environmental legislation</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Financial Support -->
+    <section id="donate" class="action-section">
+      <h2 class="section-heading">💰 Financial Support</h2>
+      <p class="section-intro">Every donation funds research, protection, restoration, and community engagement:</p>
+
+      <div class="donation-grid">
+        <article class="donation-card">
+          <h3>Conservation Organizations</h3>
+          <ul>
+            <li><a href="https://www.worldwildlife.org/donate" target="_blank">World Wildlife Fund</a></li>
+            <li><a href="https://www.nature.org/en-us/get-involved/how-to-help/donate/" target="_blank">The Nature Conservancy</a></li>
+            <li><a href="https://www.conservation.org/donate" target="_blank">Conservation International</a></li>
+            <li><a href="https://www.rainforestfoundation.org/donate/" target="_blank">Rainforest Foundation</a></li>
+          </ul>
+        </article>
+
+        <article class="donation-card">
+          <h3>Species-Specific Projects</h3>
+          <ul>
+            <li><a href="https://www.iucnredlist.org/" target="_blank">IUCN Red List — threatened species</a></li>
+            <li><a href="https://www.wildlifejustice.org/donate/" target="_blank">Wildlife Justice Commission</a></li>
+            <li><a href="https://www.panda.org/donate/" target="_blank">WWF Species Fund</a></li>
+            <li><a href="https://www.protectedplanet.net/" target="_blank">Protected Planet Network</a></li>
+          </ul>
+        </article>
+
+        <article class="donation-card">
+          <h3>Forest & Ecosystem Protection</h3>
+          <ul>
+            <li><a href="https://www.globalforestwatch.org/support/" target="_blank">Global Forest Watch</a></li>
+            <li><a href="https://www.fao.org/forestry/" target="_blank">FAO Forestry Program</a></li>
+            <li><a href="https://www.amazon-alliance.org/en" target="_blank">Amazon Alliance</a></li>
+            <li><a href="https://www.pewtrusts.org/en/who-we-are/our-focus-areas/environment" target="_blank">Pew Charitable Trusts — Environment</a></li>
+          </ul>
+        </article>
+
+        <article class="donation-card">
+          <h3>Community-Led Conservation</h3>
+          <ul>
+            <li><a href="https://www.icca-portal.org/" target="_blank">Indigenous-Conserved & Community-Conserved Areas</a></li>
+            <li><a href="https://www.gfund.org/" target="_blank">Global Greengrants Fund</a></li>
+            <li><a href="https://www.rainforestfoundation.org/" target="_blank">Rainforest Foundation — Indigenous rights</a></li>
+            <li><a href="https://www.survival-international.org/" target="_blank">Survival International</a></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="donation-tips">
+        <h3>Donation Tips</h3>
+        <ul>
+          <li><strong>Research the organization:</strong> Check ratings on <a href="https://www.charitynavigator.org/" target="_blank">Charity Navigator</a> or <a href="https://www.guidestar.org/" target="_blank">GuideStar</a></li>
+          <li><strong>Specify your cause:</strong> Many organizations allow you to designate donations to specific projects (e.g., Amazon protection, marine conservation)</li>
+          <li><strong>Set up recurring donations:</strong> Monthly donations provide organizations with predictable funding</li>
+          <li><strong>Tax deductions:</strong> In most countries, donations to registered nonprofits are tax-deductible — consult your local tax authority</li>
+          <li><strong>Corporate matching:</strong> Many employers match charitable donations — check your HR department</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Policy & Advocacy -->
+    <section id="policy" class="action-section">
+      <h2 class="section-heading">📢 Policy & Advocacy</h2>
+      <p class="section-intro">Use your voice to influence policy and hold governments & corporations accountable:</p>
+
+      <div class="advocacy-grid">
+        <article class="advocacy-card">
+          <h3>Contact elected representatives</h3>
+          <p>Legislators respond to constituent pressure. Contact your government officials on:</p>
+          <ul>
+            <li>Climate change legislation and net-zero commitments</li>
+            <li>Protected area designation and funding</li>
+            <li>Wildlife trafficking and poaching enforcement</li>
+            <li>Sustainable agriculture and forestry policies</li>
+            <li>Indigenous land rights and recognition</li>
+          </ul>
+          <p><strong>How:</strong> Find your representatives at <a href="https://www.house.gov/representatives/find-your-representative" target="_blank">House.gov</a> or equivalent in your country</p>
+        </article>
+
+        <article class="advocacy-card">
+          <h3>Support campaigns</h3>
+          <p>Join organized campaigns targeting specific issues:</p>
+          <ul>
+            <li><a href="https://www.campaignfornature.org/" target="_blank">Campaign for Nature</a> — 30% protected areas by 2030</li>
+            <li><a href="https://www.globalforestwatch.org/campaigns/" target="_blank">Global Forest Watch campaigns</a> — Zero deforestation</li>
+            <li><a href="https://www.worldwildlife.org/campaigns" target="_blank">WWF campaigns</a> — Climate, wildlife, oceans</li>
+            <li><a href="https://www.thepetitionsite.com/campaigns/?category=environment" target="_blank">The Petition Site — environmental campaigns</a></li>
+          </ul>
+        </article>
+
+        <article class="advocacy-card">
+          <h3>Corporate accountability</h3>
+          <p>Pressure companies on environmental practices:</p>
+          <ul>
+            <li>Demand supply chain transparency (deforestation-free, ethical sourcing)</li>
+            <li>Support sustainable brands and boycott unsustainable ones</li>
+            <li>File shareholder resolutions on climate and biodiversity</li>
+            <li>Leave reviews and feedback on company environmental commitments</li>
+          </ul>
+          <p><strong>Resources:</strong> <a href="https://www.rainforestfoundation.org/" target="_blank">Rainforest Foundation</a>, <a href="https://www.shareholder-action.org/" target="_blank">Interfaith Center on Corporate Responsibility</a></p>
+        </article>
+
+        <article class="advocacy-card">
+          <h3>Raise awareness & educate</h3>
+          <p>Spread knowledge to amplify impact:</p>
+          <ul>
+            <li>Share facts and resources on social media</li>
+            <li>Host screenings of environmental documentaries</li>
+            <li>Organize community talks and workshops</li>
+            <li>Write letters to newspaper editors</li>
+            <li>Start a blog or podcast on biodiversity</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="policy-resources">
+        <h3>Key Policy Resources</h3>
+        <ul>
+          <li><a href="https://sdgs.un.org/" target="_blank">UN Sustainable Development Goals</a> — Global SDG framework</li>
+          <li><a href="https://sdgs.un.org/goals/goal15" target="_blank">UN SDG 15 target page</a> — Official targets and indicators</li>
+          <li><a href="https://www.cbd.int/" target="_blank">Convention on Biological Diversity</a> — International biodiversity treaty</li>
+          <li><a href="https://www.un.org/en/climatechange/" target="_blank">UN Climate Change</a> — UNFCCC and Paris Agreement</li>
+          <li><a href="https://www.iucnredlist.org/" target="_blank">IUCN Red List</a> — Species threat assessments guiding policy</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <h2>Start today</h2>
+      <p>Every action matters. Whether you choose to change your consumption, volunteer locally, donate, or advocate — you're contributing to a sustainable future for life on land.</p>
+      <p><strong>Choose one action from above and commit to it this week.</strong></p>
+      <div class="cta-buttons">
+        <a href="#individual" class="btn btn-primary">Individual Actions</a>
+        <a href="#community" class="btn btn-secondary">Find Volunteer Opportunities</a>
+        <a href="#policy" class="btn btn-secondary">Get Involved in Policy</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Life on Land | <a href="https://sdgs.un.org/goals/goal15" target="_blank">SDG 15</a> | Join the global movement to protect biodiversity</p>
+    </div>
+  </footer>
+</body>
+</html>

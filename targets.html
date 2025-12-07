@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Targets — Life on Land</title>
+  <link rel="icon" type="image/x-icon" href="./img/Life on Land.PNG">
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/species-search.css">
+  <link rel="stylesheet" href="./styles/page-backgrounds.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+  <script defer src="./scripts/main.js"></script>
+  <script defer src="./scripts/map.js"></script>
+  <script src="./scripts/species-search.js"></script>
+  <script defer src="./scripts/charts.js"></script>
+</head>
+
+<body class="targets-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">
+        <span class="goal-number">15</span>
+        <span class="goal-title">LIFE ON LAND</span>
+      </a>
+
+      <form class="search-form" role="search" action="./targets.html" method="get">
+        <label for="site-search" class="sr-only">Search</label>
+        <input id="site-search" class="search-input" type="search" name="q" placeholder="Search targets, actions..." />
+        <button class="search-button" type="submit">🔍︎</button>
+      </form>
+
+      <nav class="main-nav">
+        <button class="menu-toggle" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./targets.html" aria-current="page">Targets</a></li>
+          <li><a href="./issues.html">Issues & Data</a></li>
+          <li><a href="./help.html">How to Help</a></li>
+          <li><a href="./quiz.html">Quiz & Activities</a></li>
+          <li><a href="./about.html">About Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <section class="container section">
+      <h2 class="section-title">Interactive targets explorer</h2>
+      <p class="lead">Real-time biodiversity data from GBIF, NASA satellites, and global monitoring networks.</p>
+    </section>
+
+    <!-- Species search section (ABOVE map) -->
+    <section class="container section species-search-section reveal">
+      <h2 class="section-heading">🔍 Search Species Observations</h2>
+
+      <div class="search-box">
+        <div class="species-input-wrapper">
+          <input type="text" id="species-search" class="species-input"
+                 placeholder="Enter species name (e.g., African Elephant, Tiger, Panda)..."
+                 autocomplete="off">
+          <button id="species-dropdown-toggle" class="species-dropdown-toggle" aria-label="Toggle species list" aria-expanded="false">▼</button>
+
+          <div id="species-dropdown" class="species-dropdown" hidden>
+            <div class="species-dropdown-header">
+              <strong>Popular Species</strong>
+            </div>
+            <ul class="species-list">
+              <li><a href="#" class="species-item" data-value="Panthera tigris">🐯 Tiger</a></li>
+              <li><a href="#" class="species-item" data-value="Gorilla beringei">🦍 Mountain Gorilla</a></li>
+              <li><a href="#" class="species-item" data-value="Loxodonta africana">🐘 African Elephant</a></li>
+              <li><a href="#" class="species-item" data-value="Ailuropoda melanoleuca">🐼 Giant Panda</a></li>
+              <li><a href="#" class="species-item" data-value="Haliaeetus leucocephalus">🦅 Bald Eagle</a></li>
+              <li><a href="#" class="species-item" data-value="Panthera leo">🦁 Lion</a></li>
+              <li><a href="#" class="species-item" data-value="Pongo pygmaeus">🦧 Orangutan</a></li>
+              <li><a href="#" class="species-item" data-value="Canis lupus">🐺 Gray Wolf</a></li>
+            </ul>
+
+            <div class="species-dropdown-header" style="margin-top: 12px;">
+              <strong>Popular Threats</strong>
+            </div>
+            <ul class="species-list">
+              <li><a href="#" class="species-item" data-value="Deforestation">🌳 Deforestation</a></li>
+              <li><a href="#" class="species-item" data-value="Invasive species">🌿 Invasive Species</a></li>
+              <li><a href="#" class="species-item" data-value="Climate change">🌡️ Climate Change</a></li>
+              <li><a href="#" class="species-item" data-value="Habitat loss">🏗️ Habitat Loss</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <button id="search-btn" class="search-btn">Search GBIF Database</button>
+      </div>
+
+      <div id="species-results" style="margin-top:12px;"></div>
+
+      <div class="search-suggestions" style="margin-top:14px;margin-left:18px">
+        <strong style="display:block;margin-bottom:8px;color:#0b6b3a">Quick picks</strong>
+
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <button type="button" class="suggest-btn" data-type="species" data-value="Panthera tigris">Tiger</button>
+          <button type="button" class="suggest-btn" data-type="species" data-value="Gorilla beringei">Mountain gorilla</button>
+          <button type="button" class="suggest-btn" data-type="species" data-value="Loxodonta africana">African elephant</button>
+
+          <button type="button" class="suggest-btn" data-type="target" data-value="15.1">Target 15.1</button>
+          <button type="button" class="suggest-btn" data-type="target" data-value="15.5">Target 15.5</button>
+          <button type="button" class="suggest-btn" data-type="target" data-value="15.a">Target 15.a</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map section (BELOW species search) -->
+    <section class="container section map-section reveal">
+      <h2 class="section-heading">🗺️ Biodiversity Map</h2>
+      <div id="map"></div>
+      <p style="font-size: 12px; color: #6b7280; text-align: center; margin-top: 8px;">
+        Data: Global Biodiversity Information Facility (GBIF) | Interactive map with filtering options
+      </p>
+    </section>
+
+    <!-- Forest loss + chart container -->
+    <section id="progress" class="container section progress-section">
+      <h2 class="section-title">Forest loss trends (2000–2024)</h2>
+
+      <div id="forest-loss-chart-container" class="chart-card" style="min-height:260px;padding:18px;background:#fff;border-radius:10px;box-shadow:0 6px 18px rgba(10,10,10,0.04);">
+        <canvas id="forest-loss-chart" style="width:100%;height:260px;"></canvas>
+
+        <div class="forest-slider" style="margin-top:12px;display:flex;align-items:center;gap:12px;">
+          <div class="forest-year-label" aria-live="polite">Year: 2024</div>
+          <input id="forest-year-range" type="range" min="2000" max="2024" value="2024" />
+        </div>
+      </div>
+
+      <div class="progress-grid" style="margin-top:18px;">
+        <div class="stat-card reveal">
+          <h4>Global forest loss</h4>
+          <p class="big-stat">10.1M</p>
+          <p style="color:var(--muted)">hectares lost per year (2000-2020)</p>
+        </div>
+        <div class="stat-card reveal">
+          <h4>Tropical deforestation</h4>
+          <p class="big-stat">92%</p>
+          <p style="color:var(--muted)">of forest loss in tropical regions</p>
+        </div>
+        <div class="stat-card reveal">
+          <h4>Restoration potential</h4>
+          <p class="big-stat">850M</p>
+          <p style="color:var(--muted)">hectares suitable for forest restoration</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Biodiversity richness -->
+    <section class="container section">
+      <h2 class="section-title">Biodiversity by region</h2>
+      <div class="chart-container reveal">
+        <canvas id="biodiversityChart"></canvas>
+      </div>
+      <p style="margin-top:12px;margin-left:12px;font-size:0.9rem;color:var(--muted)">Data: GBIF occurrence counts by country/region. Reflects observation records, not complete species inventories.</p>
+    </section>
+
+    <!-- Threat assessment -->
+    <section class="container section">
+      <h2 class="section-title">Threat assessment</h2>
+      <div class="threat-grid">
+        <div class="threat-card reveal">
+          <h3>🏗️ Habitat loss</h3>
+          <p>Primary driver of extinction. 68% of species decline caused by habitat loss or degradation.</p>
+          <div class="threat-bar"><div class="threat-fill" style="width:68%"></div></div>
+          <span class="threat-label">68% of extinctions</span>
+        </div>
+
+        <div class="threat-card reveal">
+          <h3>🌍 Climate change</h3>
+          <p>Altering species distributions and seasonal patterns. 23% of decline accelerated by climate factors.</p>
+          <div class="threat-bar"><div class="threat-fill" style="width:23%"></div></div>
+          <span class="threat-label">23% of extinctions</span>
+        </div>
+
+        <div class="threat-card reveal">
+          <h3>🔫 Poaching & trade</h3>
+          <p>Illegal wildlife trade worth $23B annually. Driving megafauna toward extinction.</p>
+          <div class="threat-bar"><div class="threat-fill" style="width:15%"></div></div>
+          <span class="threat-label">15% of extinctions</span>
+        </div>
+
+        <div class="threat-card reveal">
+          <h3>🧪 Pollution & invasives</h3>
+          <p>Plastic, chemicals and invasive species degrade ecosystems and introduce disease.</p>
+          <div class="threat-bar"><div class="threat-fill" style="width:12%"></div></div>
+          <span class="threat-label">12% of extinctions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Target cards -->
+    <section id="targets" class="container section">
+      <h2 class="section-title">Targets</h2>
+      <div class="targets-grid">
+        <article class="target-card reveal">
+          <span class="target-number">15.1</span>
+          <h3>Forest conservation & restoration</h3>
+          <p>Ensure the conservation, restoration and sustainable use of terrestrial and inland freshwater ecosystems and their services, in particular forests, wetlands, mountains and drylands, in line with obligations under international agreements.</p>
+          <a href="https://sdgs.un.org/goals/goal15#targets_and_indicators" target="_blank" class="card-link">Learn more →</a>
+        </article>
+
+        <article class="target-card reveal">
+          <span class="target-number">15.2</span>
+          <h3>Sustainable forest management</h3>
+          <p>By 2020, promote the implementation of sustainable management of all types of forests, halt deforestation, restore degraded forests and substantially increase afforestation and reforestation globally.</p>
+          <a href="https://www.globalforestwatch.org/" target="_blank" class="card-link">Learn more →</a>
+        </article>
+
+        <article class="target-card reveal">
+          <span class="target-number">15.3</span>
+          <h3>Combat desertification</h3>
+          <p>By 2030, combat desertification, restore degraded land and soil, including land affected by desertification, drought and floods, and strive to achieve a land degradation-neutral world.</p>
+          <a href="https://www.unccd.int/" target="_blank" class="card-link">Learn more →</a>
+        </article>
+
+        <article class="target-card reveal">
+          <span class="target-number">15.4</span>
+          <h3>Mountain ecosystem conservation</h3>
+          <p>By 2030, ensure the conservation of mountain ecosystems, including their biodiversity, in order to enhance their capacity to provide benefits that are essential for sustainable development.</p>
+          <a href="https://www.unep.org/explore-topics/mountains" target="_blank" class="card-link">Learn more →</a>
+        </article>
+
+        <article class="target-card reveal">
+          <span class="target-number">15.5</span>
+          <h3>Reduce species extinction</h3>
+          <p>Take urgent and significant action to reduce the degradation of natural habitats, halt the loss of biodiversity and, by 2020, protect and prevent the extinction of threatened species.</p>
+          <a href="https://www.iucnredlist.org/" target="_blank" class="card-link">Learn more →</a>
+        </article>
+
+        <article class="target-card reveal">
+          <span class="target-number">15.6</span>
+          <h3>Fair benefit sharing</h3>
+          <p>Promote fair and equitable sharing of the benefits arising from the utilization of genetic resources and promote appropriate access to such resources, as internationally agreed.</p>
+          <a href="https://www.cbd.int/" target="_blank" class="card-link">Learn more →</a>
+        </article>
+
+        <article class="target-card reveal">
+          <span class="target-number">15.7</span>
+          <h3>Eliminate poaching & trafficking</h3>
+          <p>Take urgent action to end poaching and trafficking of protected species of flora and fauna and address both demand and supply of illegal wildlife products.</p>
+          <a href="https://www.wildlifejustice.org/" target="_blank" class="card-link">Learn more →</a>
+        </article>
+
+        <article class="target-card reveal">
+          <span class="target-number">15.8</span>
+          <h3>Prevent invasive species</h3>
+          <p>By 2020, introduce measures to prevent the introduction and significantly reduce the impact of invasive species on land and water ecosystems and control or eradicate the priority species.</p>
+          <a href="https://www.iucn.org/our-work/invasive-species" target="_blank" class="card-link">Learn more →</a>
+        </article>
+
+        <article class="target-card reveal">
+          <span class="target-number">15.9</span>
+          <h3>Integrate ecosystem values</h3>
+          <p>By 2020, integrate ecosystem and biodiversity values into national and local planning, development processes, poverty reduction strategies and accounts.</p>
+          <a href="https://www.unep.org/explore-topics/biodiversity" target="_blank" class="card-link">Learn more →</a>
+        </article>
+
+        <article class="target-card reveal">
+          <span class="target-number">15.a</span>
+          <h3>Increase conservation funding</h3>
+          <p>Mobilize and significantly increase financial resources from all sources to conserve and sustainably use biodiversity and ecosystems.</p>
+          <a href="https://www.cbd.int/financial/" target="_blank" class="card-link">Learn more →</a>
+        </article>
+
+        <article class="target-card reveal">
+          <span class="target-number">15.b</span>
+          <h3>Fund sustainable forest management</h3>
+          <p>Mobilize significantly increased resources from all sources to finance sustainable forest management and provide adequate incentives to developing countries to advance such management, including for conservation and reforestation.</p>
+          <a href="https://www.fao.org/forestry/" target="_blank" class="card-link">Learn more →</a>
+        </article>
+
+        <article class="target-card reveal">
+          <span class="target-number">15.c</span>
+          <h3>Enhance global support</h3>
+          <p>Enhance global support for efforts to combat poaching and trafficking of protected species and eliminate demand for illegal wildlife products.</p>
+          <a href="https://www.cites.org/" target="_blank" class="card-link">Learn more →</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Life on Land — Data: GBIF.org, NASA SEDAC, Global Forest Watch, IUCN Red List.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts (ensure order: map first so it defines map/search, then species-search logic, then other scripts) -->
+  <script defer src="./scripts/map.js"></script>
+  <script defer src="./scripts/species-search.js"></script>
+  <script defer src="./scripts/charts.js"></script>
+  <script defer src="./scripts/main.js"></script>
+</body>
+</html>

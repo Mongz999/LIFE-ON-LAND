@@ -1,0 +1,491 @@
+/* Page styling */
+.page-title {
+  color: #0b6b3a;
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.page-intro {
+  color: #4b6b5a;
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.section-heading {
+  color: #0b6b3a;
+  border-bottom: 2px solid rgba(11, 107, 58, 0.2);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+}
+
+.section-intro {
+  color: #4b6b5a;
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+  line-height: 1.6;
+  margin-left: 18px;
+}
+
+/* Impact levels grid */
+.impact-levels {
+  margin: 36px 0;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.level-card {
+  background: #f9fafb;
+  padding: 18px;
+  border-radius: 10px;
+  border-left: 4px solid #0b6b3a;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.level-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(11, 107, 58, 0.12);
+}
+
+.level-card h3 {
+  color: #0b6b3a;
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+}
+
+.level-card p {
+  color: #4b6b5a;
+  font-size: 0.9rem;
+  margin: 0 0 12px 0;
+  line-height: 1.5;
+}
+
+.btn-small {
+  display: inline-block;
+  color: #0b6b3a;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.btn-small:hover {
+  text-decoration: underline;
+}
+
+/* Action sections */
+.action-section {
+  margin: 36px 0;
+}
+
+.action-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.action-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-top: 3px solid #0b6b3a;
+}
+
+.action-card h3 {
+  color: #0b6b3a;
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+}
+
+.action-card p {
+  color: #4b6b5a;
+  margin: 0 0 12px 0;
+  font-size: 0.9rem;
+}
+
+.action-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #4b6b5a;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.action-card li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.action-card a {
+  text-decoration: none;
+}
+
+/* Organizations grid */
+.org-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.org-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-left: 4px solid #0b6b3a;
+}
+
+.org-card h3 {
+  color: #0b6b3a;
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+}
+
+.org-card p {
+  color: #4b6b5a;
+  font-size: 0.9rem;
+  margin: 0 0 12px 0;
+  line-height: 1.5;
+}
+
+.org-card ul {
+  margin: 0;
+  padding-left: 18px;
+  list-style: none;
+}
+
+.org-card li {
+  margin-bottom: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+
+.org-card li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #0b6b3a;
+  font-weight: 600;
+}
+
+.org-card a {
+  color: #0b6b3a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.org-card a:hover {
+  text-decoration: underline;
+}
+
+/* Volunteer focus */
+.volunteer-focus {
+  background: rgba(11, 107, 58, 0.06);
+  padding: 18px;
+  border-radius: 10px;
+  border-left: 4px solid #0b6b3a;
+  margin-top: 24px;
+}
+
+.volunteer-focus h3 {
+  color: #0b6b3a;
+  margin: 0 0 12px 0;
+}
+
+.volunteer-focus ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #4b6b5a;
+  line-height: 1.8;
+}
+
+/* Donation grid */
+.donation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.donation-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-top: 3px solid #0b6b3a;
+}
+
+.donation-card h3 {
+  color: #0b6b3a;
+  margin: 0 0 12px 0;
+  font-size: 1rem;
+}
+
+.donation-card ul {
+  margin: 0;
+  padding-left: 18px;
+  list-style: none;
+}
+
+.donation-card li {
+  margin-bottom: 8px;
+  padding-left: 18px;
+  position: relative;
+}
+
+.donation-card li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #0b6b3a;
+  font-weight: 600;
+}
+
+.donation-card a {
+  color: #0b6b3a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.donation-card a:hover {
+  text-decoration: underline;
+}
+
+/* Donation tips */
+.donation-tips {
+  background: rgba(16, 185, 129, 0.06);
+  padding: 18px;
+  border-radius: 10px;
+  border-left: 4px solid #10b981;
+  margin-top: 24px;
+}
+
+.donation-tips h3 {
+  color: #0b6b3a;
+  margin: 0 0 12px 0;
+}
+
+.donation-tips ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #4b6b5a;
+  line-height: 1.8;
+}
+
+.donation-tips li {
+  margin-bottom: 8px;
+}
+
+.donation-tips a {
+  color: #0b6b3a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.donation-tips a:hover {
+  text-decoration: underline;
+}
+
+/* Advocacy grid */
+.advocacy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.advocacy-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-left: 4px solid #0b6b3a;
+}
+
+.advocacy-card h3 {
+  color: #0b6b3a;
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+}
+
+.advocacy-card p {
+  color: #4b6b5a;
+  font-size: 0.9rem;
+  margin: 0 0 12px 0;
+  line-height: 1.5;
+}
+
+.advocacy-card ul {
+  margin: 0 0 12px 0;
+  padding-left: 18px;
+  color: #4b6b5a;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.advocacy-card li {
+  margin-bottom: 6px;
+}
+
+.advocacy-card a {
+  color: #0b6b3a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.advocacy-card a:hover {
+  text-decoration: underline;
+}
+
+/* Policy resources */
+.policy-resources {
+  background: rgba(59, 130, 246, 0.06);
+  padding: 18px;
+  border-radius: 10px;
+  border-left: 4px solid #3b82f6;
+  margin-top: 24px;
+}
+
+.policy-resources h3 {
+  color: #0b6b3a;
+  margin: 0 0 12px 0;
+}
+
+.policy-resources ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #4b6b5a;
+  line-height: 1.8;
+}
+
+.policy-resources a {
+  color: #0b6b3a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.policy-resources a:hover {
+  text-decoration: underline;
+}
+
+/* CTA section */
+.cta-section {
+  background: linear-gradient(135deg, #f7fbf8 0%, #e8f6f3 100%);
+  padding: 36px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 48px 0;
+  border: 2px solid rgba(11, 107, 58, 0.1);
+}
+
+.cta-section h2 {
+  color: #0b6b3a;
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.cta-section p {
+  color: #4b6b5a;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #084d2a;
+  border: 2px solid #0b6b3a;
+}
+
+.btn-primary:hover {
+  background: #f0f9f7;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #0b6b3a;
+  border: 2px solid #0b6b3a;
+}
+
+.btn-secondary:hover {
+  background: #f0f9f7;
+  transform: translateY(-2px);
+}
+
+/* Make links in help page green (no underline by default) */
+.help-page a,
+.help-page .support-card a,
+.help-page .resource-card a {
+  color: #0b6b3a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Hover / focus state */
+.help-page a:hover,
+.help-page a:focus,
+.help-page .support-card a:hover,
+.help-page .resource-card a:hover {
+  color: #084d2a;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .section-heading {
+    font-size: 1.2rem;
+  }
+
+  .level-grid,
+  .action-cards,
+  .org-grid,
+  .donation-grid,
+  .advocacy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cta-section {
+    padding: 24px;
+  }
+}

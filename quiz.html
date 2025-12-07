@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz & Activities — Life on Land</title>
+  <link rel="icon" type="image/x-icon" href="./img/Life on Land.PNG">
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/page-backgrounds.css">
+  <link rel="stylesheet" href="./styles/animations.css">
+  <link rel="stylesheet" href="./styles/quiz.css">
+
+  <script defer src="./scripts/main.js"></script>
+  <script defer src="./scripts/animations.js"></script>
+  <script defer src="./scripts/quiz.js"></script>
+</head>
+<body class="quiz-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">
+        <span class="goal-number">15</span>
+        <span class="goal-title">LIFE ON LAND</span>
+      </a>
+
+      <form class="search-form" role="search" action="./targets.html" method="get">
+        <label for="site-search" class="sr-only">Search</label>
+        <input id="site-search" class="search-input" type="search" name="q" placeholder="Search targets, actions..." />
+        <button class="search-button" type="submit">🔍︎</button>
+      </form>
+
+      <nav class="main-nav">
+        <button class="menu-toggle" aria-expanded="false">☰</button>
+        <ul class="nav-list">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./targets.html">Targets</a></li>
+          <li><a href="./issues.html">Issues & Data</a></li>
+          <li><a href="./help.html">How to Help</a></li>
+          <li><a href="./quiz.html" aria-current="page">Quiz & Activities</a></li>
+          <li><a href="./about.html">About Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Quiz & Activities</h1>
+    <p class="page-intro">Test your knowledge about SDG 15, participate in interactive activities, and discover how much you know about biodiversity, forests, and ecosystem protection.</p>
+
+    <!-- Quiz Selection -->
+    <section class="quiz-selection">
+      <h2 class="section-heading">Choose Your Challenge</h2>
+      
+      <div class="quiz-cards">
+        <div class="quiz-card" data-quiz="beginner">
+          <div class="quiz-icon">🌱</div>
+          <h3>Beginner Quiz</h3>
+          <p>10 questions about basic SDG 15 concepts and why ecosystems matter.</p>
+          <div class="quiz-meta">
+            <span class="difficulty beginner">Beginner</span>
+            <span class="time">⏱️ 5 mins</span>
+          </div>
+          <button class="btn btn-primary" onclick="startQuiz('beginner')">Start Quiz</button>
+        </div>
+
+        <div class="quiz-card" data-quiz="intermediate">
+          <div class="quiz-icon">🌳</div>
+          <h3>Intermediate Quiz</h3>
+          <p>15 questions on deforestation, biodiversity loss, and conservation solutions.</p>
+          <div class="quiz-meta">
+            <span class="difficulty intermediate">Intermediate</span>
+            <span class="time">⏱️ 10 mins</span>
+          </div>
+          <button class="btn btn-primary" onclick="startQuiz('intermediate')">Start Quiz</button>
+        </div>
+
+        <div class="quiz-card" data-quiz="advanced">
+          <div class="quiz-icon">🌍</div>
+          <h3>Advanced Quiz</h3>
+          <p>20 challenging questions on global conservation policy and data.</p>
+          <div class="quiz-meta">
+            <span class="difficulty advanced">Advanced</span>
+            <span class="time">⏱️ 15 mins</span>
+          </div>
+          <button class="btn btn-primary" onclick="startQuiz('advanced')">Start Quiz</button>
+        </div>
+
+        <div class="quiz-card" data-quiz="speed">
+          <div class="quiz-icon">⚡</div>
+          <h3>Speed Challenge</h3>
+          <p>Race against the clock with 20 rapid-fire questions. How many can you get right?</p>
+          <div class="quiz-meta">
+            <span class="difficulty advanced">Advanced</span>
+            <span class="time">⏱️ 3 mins</span>
+          </div>
+          <button class="btn btn-primary" onclick="startQuiz('speed')">Start Challenge</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Container (Hidden until started) -->
+    <div id="quiz-container" class="quiz-container hidden">
+      <div class="quiz-header">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="quiz-info">
+          <span class="question-counter"><span id="current-question">1</span> / <span id="total-questions">10</span></span>
+          <span class="timer" id="timer">5:00</span>
+          <button class="btn-icon" onclick="exitQuiz()" title="Exit quiz">✕</button>
+        </div>
+      </div>
+
+      <div class="quiz-content">
+        <h3 id="question-text"></h3>
+        
+        <div class="answers-grid" id="answers-grid"></div>
+
+        <div class="quiz-navigation">
+          <button class="btn btn-secondary" id="prev-btn" onclick="previousQuestion()" disabled>← Previous</button>
+          <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Screen (Hidden until quiz ends) -->
+    <div id="results-container" class="results-container hidden">
+      <div class="results-card">
+        <h2>Quiz Complete! 🎉</h2>
+        
+        <div class="score-display">
+          <div class="score-circle">
+            <span class="score-number" id="final-score">0</span>
+            <span class="score-max">/ <span id="max-score">10</span></span>
+          </div>
+          <p class="score-percentage" id="score-percentage">0%</p>
+        </div>
+
+        <div class="feedback-message" id="feedback-message"></div>
+
+        <div class="results-breakdown">
+          <h3>Your Performance</h3>
+          <div class="breakdown-stats">
+            <div class="stat">
+              <div class="stat-label">Correct</div>
+              <div class="stat-value correct" id="correct-count">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Incorrect</div>
+              <div class="stat-value incorrect" id="incorrect-count">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Skipped</div>
+              <div class="stat-value skipped" id="skipped-count">0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-buttons">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <button class="btn btn-secondary" onclick="backToSelection()">Try Another</button>
+          <a href="./help.html" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+
+      <div class="review-section">
+        <h3>Review Your Answers</h3>
+        <div id="review-list" class="review-list"></div>
+      </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <section class="leaderboard-section">
+      <h2 class="section-heading">Leaderboard</h2>
+      <p class="section-intro">Top performers this week. Can you make the list?</p>
+
+      <div class="leaderboard-container">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>Accuracy</th>
+              <th>Quiz Type</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="leaderboard-row">
+              <td class="rank">🥇 1</td>
+              <td class="name">EcoWarrior92</td>
+              <td class="accuracy">94%</td>
+              <td class="quiz-type">Advanced</td>
+              <td class="score">95%</td>
+            </tr>
+            <tr class="leaderboard-row">
+              <td class="rank">🥈 2</td>
+              <td class="name">NatureGuardian</td>
+              <td class="accuracy">91%</td>
+              <td class="quiz-type">Intermediate</td>
+              <td class="score">92%</td>
+            </tr>
+            <tr class="leaderboard-row">
+              <td class="rank">🥉 3</td>
+              <td class="name">GreenMind</td>
+              <td class="accuracy">87%</td>
+              <td class="quiz-type">Beginner</td>
+              <td class="score">88%</td>
+            </tr>
+            <tr class="leaderboard-row">
+              <td class="rank">4</td>
+              <td class="name">BiodiversityFan</td>
+              <td class="accuracy">84%</td>
+              <td class="quiz-type">Speed</td>
+              <td class="score">85%</td>
+            </tr>
+            <tr class="leaderboard-row">
+              <td class="rank">5</td>
+              <td class="name">ForestKeeper</td>
+              <td class="accuracy">81%</td>
+              <td class="quiz-type">Advanced</td>
+              <td class="score">82%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Fun Facts -->
+    <section class="fun-facts-section">
+      <h2 class="section-heading">Did You Know?</h2>
+      <div class="facts-grid">
+        <div class="fact-card">
+          <h3>🌲 Forest Facts</h3>
+          <p>Forests cover 31% of global land, but we lose about 10 million hectares per year.</p>
+        </div>
+        <div class="fact-card">
+          <h3>🦁 Biodiversity</h3>
+          <p>One million species face extinction — that's 1 every 5 minutes due to habitat loss.</p>
+        </div>
+        <div class="fact-card">
+          <h3>🌍 Climate Impact</h3>
+          <p>Forests absorb 2.4 billion tons of CO₂ annually, making them crucial for climate stability.</p>
+        </div>
+        <div class="fact-card">
+          <h3>👥 Human Connection</h3>
+          <p>1.6 billion people depend on forests for their livelihoods and survival.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="resources-section">
+      <h2 class="section-heading">Learning Resources</h2>
+      <p class="section-intro">Dive deeper into SDG 15 with these curated resources.</p>
+
+      <div class="resources-grid">
+        <div class="resource-card">
+          <h3>📚 Guides & Ebooks</h3>
+          <p>Comprehensive guides on biodiversity, forest protection, and sustainable land use.</p>
+          <a href="https://sdgs.un.org/goals/goal15" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">UN SDG 15 — Official</a>
+          <a href="https://www.fao.org/state-of-forests/en/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">FAO — State of the World's Forests</a>
+        </div>
+
+        <div class="resource-card">
+          <h3>🎬 Videos</h3>
+          <p>Documentaries and short explainers about ecosystems and conservation.</p>
+          <a href="https://www.youtube.com/user/unitednations" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">UN — Videos</a>
+          <a href="https://www.conservation.org/stories" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Conservation International — Stories</a>
+        </div>
+
+        <div class="resource-card">
+          <h3>📊 Data & Reports</h3>
+          <p>Latest research, reports, and statistics on SDG 15 and global biodiversity.</p>
+          <a href="https://www.globalforestwatch.org/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Global Forest Watch</a>
+          <a href="https://www.iucnredlist.org/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">IUCN Red List</a>
+          <a href="https://ipbes.net/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">IPBES Reports</a>
+        </div>
+
+        <div class="resource-card">
+          <h3>🌐 External Links</h3>
+          <p>Curated links to organisations, initiatives, and expert resources on conservation.</p>
+          <a href="https://www.cbd.int/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Convention on Biological Diversity</a>
+          <a href="https://www.worldwildlife.org/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">WWF</a>
+          <a href="https://www.wri.org/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">World Resources Institute</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Life on Land | <a href="https://sdgs.un.org/goals/goal15" target="_blank">SDG 15</a> | Protecting biodiversity and restoring ecosystems worldwide</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      displayLeaderboard();
+    });
+  </script>
+</body>
+</html>
